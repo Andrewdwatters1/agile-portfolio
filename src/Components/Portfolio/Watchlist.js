@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../.././CSS/main.css';
 
-class Display extends Component {
+class Watchlist extends Component {
   constructor() {
     super()
 
@@ -13,12 +13,12 @@ class Display extends Component {
   render() {
     return (
       <div>
-        {/* for each time input "add to Display" button is clicked
-        add the stock to the Display */}
-        Display
+        {/* for each time input "add to watchlist" button is clicked
+        add the stock to the watchlist */}
+        Watchlist
       </div>
     )
   }
 }
 
-export default Display;
+export default Watchlist;
