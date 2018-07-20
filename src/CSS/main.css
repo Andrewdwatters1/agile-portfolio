@@ -1,0 +1,39 @@
+.outer-flex {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 100vh;
+}
+
+.content-right-main {
+  background-color: lightskyblue;
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.header-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  height: 25%;
+}
+
+
+
+
+
+/* ************************** */
+/* ************************** */
+.content-left-main {
+  background-color: red;
+  width: 20%;
+  height: auto;
+}
+
+
+
