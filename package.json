@@ -2,6 +2,8 @@
   "name": "my-agile-portfolio",
   "version": "0.1.0",
   "private": true,
+  "main": "./src/Server/server.js",
+  "proxy": "http://localhost:3013",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
