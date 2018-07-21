@@ -33,14 +33,12 @@ class Input extends Component {
   }
 
   portfolioAdd = () => {
-    if(this.state.sharesInput && this.state.sharesInput != 0) {
+    if(this.state.sharesInput && Number(this.state.sharesInput) !== 0) {
       axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${this.state.symbolInput}&apikey=${apiKey}`).then(result => {
-      let stockz = [];
         if(!result.data["Error Message"]) {
-          stockz.push(result.data);
           ToastStore.success(`Added ${this.state.sharesInput} share(s) of ${this.state.symbolInput.toUpperCase()} to Portfolio`)
           this.setState({
-            stocksp: stockz
+            stocksp: [...this.state.stocksp, result.data]
             })
         } else {
           ToastStore.error("Oops!  We couldn't find any stocks with that symbol. Please try again.");
@@ -53,13 +51,12 @@ class Input extends Component {
 
   watchlistAdd = () => { // need to display an error if stock is already in watchlist
     axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${this.state.symbolInput}&apikey=${apiKey}`).then(result => {
-    let stockz = [];
       if(!result.data["Error Message"]) {
-        stockz.push(result.data);
         ToastStore.success(`Added ${this.state.symbolInput.toUpperCase()} to Watchlist`);
         this.setState({
-          stocksw: stockz
-        })
+          stocksw: [...this.state.stocksw, result.data]
+        });
+    
       } else {
         ToastStore.error("Oops!  We couldn't find any stocks with that symbol. Please try again.");
       };
@@ -67,24 +64,22 @@ class Input extends Component {
   }
 
   render() {
+    
     return (
     <div>
-      <ToastContainer store={ToastStore} position={ToastContainer.POSITION.BOTTOM_RIGHT}/>
       <input placeholder="Ticker Symbol" onChange={this.symbolChange}></input>
       <input placeholder="Num Shares" onChange={this.sharesChange}></input>
       <button onClick={this.portfolioAdd}>Add to portfolio</button>
       <button onClick={this.watchlistAdd}>Add to watchlist</button>
-      <Display/> {/* need to add stock symbol from meta-data with quantity
+      <Display stocksList={this.state.stocksp}/> {/* need to add stock symbol from meta-data with quantity
       to display component once for each time "add to portfolio" is clicked.
         Would be nice to have a cumulative counter in display component's 
         state keeping track of "holdings" and change "add to portfolio" button
       to buy/sell button*/}
-
-      
-      <Watchlist/> {/* need to add stock symbol from meta-data to watchlist
-      component once for each time "Add to watchlist" is clicked w/ a valid 
-    entry.  If stock symbol is already in watchlist, return error "this stock 
-      is already in your watchlist""}*/}
+      <div className="watchlist-left">
+       <Watchlist stocksList={this.state.stocksw}/>
+      </div>
+      <ToastContainer store={ToastStore} position={ToastContainer.POSITION.BOTTOM_RIGHT}/>
     </div>
     )
   }

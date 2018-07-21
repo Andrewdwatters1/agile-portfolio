@@ -13,8 +13,7 @@ class Display extends Component {
   render() {
     return (
       <div>
-        {/* for each time input "add to Display" button is clicked
-        add the stock to the Display */}
+        {/* {console.log("Display Props", this.props)} */}
         Display
       </div>
     )

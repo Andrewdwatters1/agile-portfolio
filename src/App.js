@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './CSS/main.css';
-import axios from 'axios';
-import apiKey from './apiKey';
+// import axios from 'axios';
+// import apiKey from './apiKey';
 
 import Header from './Components/Header';
 import Portfolio from './Components/Portfolio/Portfolio';
-import Watchlist from './Components/Portfolio/Watchlist';
 
-
-
-var symbol = "FB";
 
 class App extends Component {
   constructor() {
@@ -32,7 +28,6 @@ class App extends Component {
         </div>
 
         <div className="content-left-main">Left Sidebar
-          <Watchlist/>
           {/* <Search/>
           <MarketIndexes/> */}
         </div>

@@ -23,6 +23,14 @@
   height: 25%;
 }
 
+.watchlist-left {
+  background-color: green;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 
 
 
