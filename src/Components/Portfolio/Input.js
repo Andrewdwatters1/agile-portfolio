@@ -34,7 +34,7 @@ class Input extends Component {
 
   portfolioAdd = () => {
     if(this.state.sharesInput && Number(this.state.sharesInput) !== 0) {
-      axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${this.state.symbolInput}&apikey=${apiKey}`).then(result => {
+      axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${this.state.symbolInput}&interval=1min&apikey=${apiKey}`).then(result => {
         if(!result.data["Error Message"]) {
           ToastStore.success(`Added ${this.state.sharesInput} share(s) of ${this.state.symbolInput.toUpperCase()} to Portfolio`)
           this.setState({
@@ -50,7 +50,7 @@ class Input extends Component {
   }
 
   watchlistAdd = () => { // need to display an error if stock is already in watchlist
-    axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${this.state.symbolInput}&apikey=${apiKey}`).then(result => {
+    axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${this.state.symbolInput}&interval=1min&apikey=${apiKey}`).then(result => {
       if(!result.data["Error Message"]) {
         ToastStore.success(`Added ${this.state.symbolInput.toUpperCase()} to Watchlist`);
         this.setState({
