@@ -8,23 +8,17 @@ import Header from './Components/Header';
 import Portfolio from './Components/Portfolio/Portfolio';
 import Watchlist from './Components/Portfolio/Watchlist';
 
+
+
+var symbol = "FB";
+
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      stocks: [],
-
+      ifneeds: "has"
     }
-  }
-
-  componentDidMount = () => {
-    axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=AMZN&apikey=${apiKey}`).then(result => {
-    console.log(result.data); 
-    this.setState({
-
-      })
-    })
   }
 
   render() {
