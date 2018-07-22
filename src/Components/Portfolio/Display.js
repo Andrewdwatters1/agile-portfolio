@@ -4,19 +4,22 @@ import '../.././CSS/main.css';
 class Display extends Component {
   constructor() {
     super()
-    this.state = {
-      sharesA: 0,
-      sharesB: 0,
-      sharesC: 0,
-      sharesD: 0,
-      sharesE: 0,
-      sharesF: 0,
-    }
+    // this.state = {
+    //   sharesA: 0,
+    //   sharesB: 0,
+    //   sharesC: 0,
+    //   sharesD: 0,
+    //   sharesE: 0,
+    //   sharesF: 0,
+    // }
   }
 
-  initialBuy = () => {
-    
-  }
+  // initialBuy = (num) => {
+  //   this.setState({
+  //     sharesA: this.state.sharesA + num,
+  //   })
+  // }
+
 
 
   render() {
@@ -32,11 +35,9 @@ class Display extends Component {
       }
       portfolio.push(singleStock);
     }
-
     var portfolioStocks = portfolio.map((elem, ind) => {
       return <p key={ind}>{elem.symbol} <br />{elem.price}<br />{elem.time}</p>
     })
-    if(portfolioStocks.hasOwnProperty([0])) console.log(portfolioStocks)
     console.log('numShares', this.props.numShares);
     return (
       <div className="portfolio-display-main">

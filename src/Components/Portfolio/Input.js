@@ -13,6 +13,7 @@ class Input extends Component {
     this.state = {
       symbolInput: "",
       sharesInput: "",
+      sharesAdded: 0,
       stocksp: [],
       stocksw: [],
     }
@@ -29,7 +30,7 @@ class Input extends Component {
     // console.log(e.target.value);
     this.setState({
       sharesInput: e.target.value,
-    })
+      })
   }
 
   portfolioAdd = () => {
@@ -38,7 +39,8 @@ class Input extends Component {
         if(!result.data["Error Message"]) {
           ToastStore.success(`Added ${this.state.sharesInput} share(s) of ${this.state.symbolInput.toUpperCase()} to Portfolio`)
           this.setState({
-            stocksp: [...this.state.stocksp, result.data]
+            stocksp: [...this.state.stocksp, result.data],
+            sharesAdded: this.state.sharesAdded + Number(this.state.sharesInput),
             })
         } else {
           ToastStore.error("Oops!  We couldn't find any stocks with that symbol. Please try again.");
@@ -78,7 +80,7 @@ class Input extends Component {
       <div className="watchlist-left">
        <Watchlist stocksList={this.state.stocksw}/>
       </div>
-      <Display stocksList={this.state.stocksp} numShares={this.state.sharesInput}/>
+      <Display stocksList={this.state.stocksp} numShares={this.state.sharesAdded}/>
       <ToastContainer store={ToastStore} position={ToastContainer.POSITION.BOTTOM_RIGHT}/>
     </div>
     )
