@@ -64,14 +64,13 @@ class Input extends Component {
   }
 
   render() {
-    
     return (
     <div>
       <input placeholder="Ticker Symbol" onChange={this.symbolChange}></input>
       <input placeholder="Num Shares" onChange={this.sharesChange}></input>
-      <button onClick={this.portfolioAdd}>Add to portfolio</button>
+      <button onClick={this.portfolioAdd}>Add to Portfolio</button>
       <button onClick={this.watchlistAdd}>Add to watchlist</button>
-      <Display stocksList={this.state.stocksp}/> {/* need to add stock symbol from meta-data with quantity
+      {/* need to add stock symbol from meta-data with quantity
       to display component once for each time "add to portfolio" is clicked.
         Would be nice to have a cumulative counter in display component's 
         state keeping track of "holdings" and change "add to portfolio" button
@@ -79,6 +78,7 @@ class Input extends Component {
       <div className="watchlist-left">
        <Watchlist stocksList={this.state.stocksw}/>
       </div>
+      <Display stocksList={this.state.stocksp} numShares={this.state.sharesInput}/>
       <ToastContainer store={ToastStore} position={ToastContainer.POSITION.BOTTOM_RIGHT}/>
     </div>
     )

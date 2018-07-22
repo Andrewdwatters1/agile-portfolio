@@ -6,7 +6,7 @@
 
 .content-right-main {
   background-color: lightskyblue;
-  width: 80%;
+  width: 75vw;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@
   justify-content: center;
   align-items: center;
   background-color: blue;
-  height: 25%;
+  height: 25vh;
 }
 
 .watchlist-left {
@@ -29,9 +29,17 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  overflow: auto;
+  width: 25vw;
+  height: 60vh;
+
 }
 
-
+.portfolio-display-main {
+  background-color: pink;
+  width: auto;
+  height: 75vh;
+}
 
 
 
@@ -39,7 +47,7 @@
 /* ************************** */
 .content-left-main {
   background-color: red;
-  width: 20%;
+  width: 25%;
   height: auto;
 }
 

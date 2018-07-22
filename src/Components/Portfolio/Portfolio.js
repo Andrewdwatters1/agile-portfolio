@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import '../.././CSS/main.css';
 import Input from './Input';
-import Display from './Display';
 
 class Portfolio extends Component {
   constructor() {
@@ -15,8 +14,6 @@ class Portfolio extends Component {
     return (
       <div>
         <Input/>
-        <p>Portfolio main</p>
-        <Display/>
       </div>
     )
   }
