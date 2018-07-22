@@ -40,6 +40,7 @@ class Input extends Component {
           ToastStore.success(`Added ${this.state.sharesInput} share(s) of ${this.state.symbolInput.toUpperCase()} to Portfolio`)
           this.setState({
             stocksp: [...this.state.stocksp, result.data],
+            sharesAdded: this.state.sharesInput,
             })
             
         } else {
@@ -56,7 +57,7 @@ class Input extends Component {
       if(!result.data["Error Message"]) {
         ToastStore.success(`Added ${this.state.symbolInput.toUpperCase()} to Watchlist`);
         this.setState({
-          stocksw: [...this.state.stocksw, result.data]
+          stocksw: [...this.state.stocksw, result.data],
         });
     
       } else {
