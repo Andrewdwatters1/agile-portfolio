@@ -40,8 +40,8 @@ class Input extends Component {
           ToastStore.success(`Added ${this.state.sharesInput} share(s) of ${this.state.symbolInput.toUpperCase()} to Portfolio`)
           this.setState({
             stocksp: [...this.state.stocksp, result.data],
-            sharesAdded: this.state.sharesAdded + Number(this.state.sharesInput),
             })
+            
         } else {
           ToastStore.error("Oops!  We couldn't find any stocks with that symbol. Please try again.");
         };

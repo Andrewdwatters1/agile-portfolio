@@ -14,14 +14,6 @@ class Display extends Component {
     // }
   }
 
-  // initialBuy = (num) => {
-  //   this.setState({
-  //     sharesA: this.state.sharesA + num,
-  //   })
-  // }
-
-
-
   render() {
     var portfolio= [];
     for (let i = 0; i < this.props.stocksList.length; i++) {
@@ -29,16 +21,18 @@ class Display extends Component {
       let foundMostRecent = mostRecent.shift()
       let recentTime = foundMostRecent["4. close"];
       let singleStock = {
-        symbol: `${this.props.stocksList[i]["Meta Data"]["2. Symbol"].toUpperCase()}` ,
-        price: `$${recentTime}`,
+        symbol: `${this.props.stocksList[i]["Meta Data"]["2. Symbol"].toUpperCase()}: `,
+        shares: `${this.props.numShares} share(s) - `,
+        price: `Last: $${recentTime}. `,
+        totalValue: `Current Value: $${(recentTime * this.props.numShares)}`,
         time: `Last updated: ${this.props.stocksList[i]["Meta Data"]["3. Last Refreshed"]}`
       }
       portfolio.push(singleStock);
     }
     var portfolioStocks = portfolio.map((elem, ind) => {
-      return <p key={ind}>{elem.symbol} <br />{elem.price}<br />{elem.time}</p>
+      return <p key={ind}>{elem.symbol} {elem.shares} {elem.price} <b>{elem.totalValue}</b> </p>
     })
-    console.log('numShares', this.props.numShares);
+    console.log('Shares in PF (cumulative)', this.props.numShares)
     return (
       <div className="portfolio-display-main">
         <h2>Holdings</h2>

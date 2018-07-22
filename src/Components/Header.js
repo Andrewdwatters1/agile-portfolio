@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = function myHeader(props) {
+const Header = function myHeader() {
   return (
   <div className="header-main">
     <h1>Welcome to Agile Portfolio!</h1>
@@ -9,6 +9,4 @@ const Header = function myHeader(props) {
 )};
 
 export default Header;
-
-// FUNCTION COMPLETE, NEEDS STYLED
 
