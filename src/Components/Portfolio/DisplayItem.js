@@ -7,13 +7,6 @@ class DisplayItem extends Component {
   }
 
 render() {
-    // if(this.props.positionInfo) {
-  //     console.log('Stock key', this.props.positionInfo.key)
-  //   }
-  // if(this.props.positionInfo) {
-  //   console.log('Symbol', this.props.positionInfo.props.children[0], '#shares', this.props.positionInfo.props.children[2], 'last', this.props.positionInfo.props.children[4])
-  // }
-
   let holdings = [];
   if (this.props.positionInfo) {
     for ( let i = 0; i <= this.props.positionInfo.key; i++) {

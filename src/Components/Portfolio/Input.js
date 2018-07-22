@@ -70,8 +70,8 @@ class Input extends Component {
     return (
     <div>
       <input placeholder="Ticker Symbol" onChange={this.symbolChange}></input>
-      <input placeholder="Num Shares" onChange={this.sharesChange}></input>
-      <button onClick={this.portfolioAdd}>Add to Portfolio</button>
+      <input placeholder="# Shares" onChange={this.sharesChange} type="number" value={this.state.value}></input>
+      <button onClick={this.portfolioAdd}>Add to portfolio</button>
       <button onClick={this.watchlistAdd}>Add to watchlist</button>
       {/* need to add stock symbol from meta-data with quantity
       to display component once for each time "add to portfolio" is clicked.
