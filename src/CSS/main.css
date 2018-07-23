@@ -51,6 +51,10 @@
   height: auto;
 }
 
+.display-list-main {
+  z-index: 3;
+  background-color: red;
+}
 .indexes-left {
   background-color: orange;
   z-index: 1;

@@ -42,8 +42,7 @@ class Input extends Component {
           this.setState({
             stocksp: [...this.state.stocksp, result.data],
             sharesAdded: this.state.sharesInput,
-            })
-            
+            })  
         } else {
           ToastStore.error("Oops!  We couldn't find any stocks with that symbol. Please try again.");
         };
@@ -67,10 +66,11 @@ class Input extends Component {
     })
   }
 
+
   render() {
     return (
     <div>
-      <input placeholder="Ticker Symbol" onChange={this.symbolChange}></input>
+      <input placeholder="Ticker Symbol" onChange={this.symbolChange} value={this.state.value}></input>
       <input placeholder="# Shares" onChange={this.sharesChange} type="number" value={this.state.value}></input>
       <button onClick={this.portfolioAdd}>Add to portfolio</button>
       <button onClick={this.watchlistAdd}>Add to watchlist</button>
@@ -87,8 +87,9 @@ class Input extends Component {
       <div className="watchlist-left">
        <Watchlist stocksList={this.state.stocksw}/>
       </div>
-      <Display stocksList={this.state.stocksp} numShares={this.state.sharesAdded}/>
-      <ToastContainer store={ToastStore} position={ToastContainer.POSITION.BOTTOM_RIGHT}/>
+        <h2>Holdings</h2>
+        <Display stocksList={this.state.stocksp} numShares={this.state.sharesAdded}/>
+        <ToastContainer store={ToastStore} position={ToastContainer.POSITION.BOTTOM_RIGHT}/>
     </div>
     )
   }
