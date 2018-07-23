@@ -5,6 +5,7 @@ import {ToastContainer, ToastStore} from 'react-toasts';
 import apiKey from '../.././apiKey';
 import Display from './Display';
 import Watchlist from './Watchlist';
+import MarketIndexes from './../MarketIndexes';
 
 
 class Input extends Component {
@@ -78,6 +79,11 @@ class Input extends Component {
         Would be nice to have a cumulative counter in display component's 
         state keeping track of "holdings" and change "add to portfolio" button
       to buy/sell button*/}
+      <div className="indexes-left">
+        <MarketIndexes indexSymbol={"INX"}/>
+        <MarketIndexes indexSymbol={"DJI"}/>
+        <MarketIndexes indexSymbol={"IXIC"}/>
+      </div>
       <div className="watchlist-left">
        <Watchlist stocksList={this.state.stocksw}/>
       </div>
