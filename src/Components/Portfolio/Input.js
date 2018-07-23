@@ -53,7 +53,7 @@ class Input extends Component {
   }
 
   watchlistAdd = () => { // need to display an error if stock is already in watchlist
-    axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${this.state.symbolInput}&interval=1min&apikey=${apiKey}`).then(result => {
+    axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${this.state.symbolInput}&interval=5min&apikey=${apiKey}`).then(result => {
       if(!result.data["Error Message"]) {
         ToastStore.success(`Added ${this.state.symbolInput.toUpperCase()} to Watchlist`);
         this.setState({
@@ -65,7 +65,6 @@ class Input extends Component {
       };
     })
   }
-
 
   render() {
     return (
@@ -80,9 +79,10 @@ class Input extends Component {
         state keeping track of "holdings" and change "add to portfolio" button
       to buy/sell button*/}
       <div className="indexes-left">
-        <MarketIndexes indexSymbol={"INX"}/>
-        <MarketIndexes indexSymbol={"DJI"}/>
-        <MarketIndexes indexSymbol={"IXIC"}/>
+        {/* <MarketIndexes indexSymbol={"INX"}/> */}
+        {/* <MarketIndexes indexSymbol={"DJI"}/>
+        <MarketIndexes indexSymbol={"IXIC"}/> */}
+        <p>*market data delayed 15 mins</p>
       </div>
       <div className="watchlist-left">
        <Watchlist stocksList={this.state.stocksw}/>

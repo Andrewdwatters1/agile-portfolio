@@ -13,20 +13,21 @@ class Display extends Component {
         let mostRecent = Object.values(this.props.stocksList[i]["Time Series (1min)"])
         let foundMostRecent = mostRecent.shift()
         let recentTime = foundMostRecent["4. close"];
+        let totalValues = (Number(this.props.numShares) * Number(recentTime));
         let singleStock = {
           symbol: `${this.props.stocksList[i]["Meta Data"]["2. Symbol"].toUpperCase()}`,
-          shares: `${this.props.numShares}`,
-          price: `${Number(recentTime).toFixed(2)}`,
+          shares: Number(this.props.numShares),
+          price: "$" + Number(recentTime).toFixed(2),
           time: `Last updated: ${this.props.stocksList[i]["Meta Data"]["3. Last Refreshed"]}`,
-          totalValue: `Current Value: $${(recentTime * this.props.numShares)}`,
+          totalValue: totalValues
         }
         portfolio.push(singleStock);
       }
     }
     
-
+    
     var portfolioStocks = portfolio.map((elem, ind) => {
-      return <p key={ind}>{elem.symbol} {elem.shares} {elem.price} <b> {elem.totalValue}</b></p>
+      return <p key={ind}>{`${elem.symbol}:`} {`${elem.shares} share(s) - `} {`Last Price: ${elem.price}. `} <b> {`Current Value; $${elem.totalValue.toFixed(2)}`}</b></p>
     })
     return (
       <div className="portfolio-display-main">

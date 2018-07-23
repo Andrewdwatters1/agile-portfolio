@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.get("/api/stocks", sc.getStockData);
 // app.put(`api/stocks ${plus param to change}`, sc.updateStockData);
-// app.post(`/api/stocks ${plus params if needed}`, sc.create);
+app.post(`/api/stocks/:${stockInfo}`, sc.manuallyAdd);
 app.delete("/api/stocks/:symbol", sc.deleteStock);
 
 const port = 3013;

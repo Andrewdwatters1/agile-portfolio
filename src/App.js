@@ -19,7 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="outer-flex">
+      <div className="outer-flex background-image-main content-main-master">
 
         <div className="content-right-main">
           <Header/>

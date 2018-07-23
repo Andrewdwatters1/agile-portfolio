@@ -14,10 +14,9 @@ module.exports = {
     res.status(200).send(stocks);
   },
 
-  create: (req, res, next) => {
-    // expect the request to have a json body, 
-    // user would have to submit some parameters here
-    // res.status(200).send(stock)
+  manuallyAdd: (req, res, next) => {
+    let {stockInfo} = req.body;
+    console.log('user wishes to add', req.body);
   },
   
   deleteStock: (req, res, next) => {
