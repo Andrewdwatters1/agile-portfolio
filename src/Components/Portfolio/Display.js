@@ -1,19 +1,22 @@
-import React, {Component} from 'react';
-import '../.././CSS/main.css';
+import React, { Component } from 'react';
 
 class Display extends Component {
   constructor() {
     super()
+    this.state = {
+      portfolio: []
+    }
   }
 
   render() {
     let portfolio = [];
-    if (this.props.stocksList.length) {
+    console.log(this.props)
+    if (this.props.stocksList.length > 0) {
       for (let i = 0; i < this.props.stocksList.length; i++) {
         let mostRecent = Object.values(this.props.stocksList[i]["Time Series (1min)"])
         let foundMostRecent = mostRecent.shift()
-        let recentTime = foundMostRecent["4. close"];
-        let totalValues = (Number(this.props.numShares) * Number(recentTime));
+        let recentTime = foundMostRecent["4. close"]
+        let totalValues = (Number(this.props.numShares) * Number(recentTime))
         let singleStock = {
           symbol: `${this.props.stocksList[i]["Meta Data"]["2. Symbol"].toUpperCase()}`,
           shares: Number(this.props.numShares),
@@ -24,14 +27,12 @@ class Display extends Component {
         portfolio.push(singleStock);
       }
     }
-    
-    
     var portfolioStocks = portfolio.map((elem, ind) => {
-      return <p key={ind}>{`${elem.symbol}:`} {`${elem.shares} share(s) - `} {`Last Price: ${elem.price}. `} <b> {`Current Value; $${elem.totalValue.toFixed(2)}`}</b></p>
+      return <p key={ind}>{`${elem.symbol}:`} {`${elem.shares} share(s) - `} {`Last Price: ${elem.price}. `} <b> {`Current Value: $${elem.totalValue.toFixed(2)}`}</b></p>
     })
     return (
-      <div className="portfolio-display-main">
-        <h2>{portfolioStocks}</h2>
+      <div>
+        <h2>{portfolioStocks} <br /></h2>
       </div>
     )
   }
@@ -91,7 +92,7 @@ export default Display;
 
 //     console.log(portfolio);
 //     return (
-//       <div className="portfolio-display-main">
+//       <div>
 //         <h2>Holdings</h2>
 //         <p>{this.displayAll(portfolio)}</p>
 //         {/* <DisplayItem positionInfo={portfolioStocks[portfolioStocks.length-1]}/> */}

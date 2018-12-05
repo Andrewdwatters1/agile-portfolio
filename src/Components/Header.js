@@ -2,11 +2,12 @@ import React from 'react';
 
 const Header = function myHeader() {
   return (
-  <div className="header-main">
-    <h1>Welcome to Agile Portfolio!</h1>
-    <h3>To get started: Enter your holdings below </h3>
-  </div>
-)};
+    <div>
+      <h1>Welcome to My Agile Portfolio!</h1>
+      <h2>Enter Holdings Below<br /></h2>
+    </div>
+  )
+}
 
-export default Header;
+export default Header
 

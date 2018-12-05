@@ -2,10 +2,11 @@
   "name": "my-agile-portfolio",
   "version": "0.1.0",
   "private": true,
-  "main": "./src/Server/server.js",
-  "proxy": "http://localhost:3013",
+  "main": "server/server.js",
+  "proxy": "http://localhost:3015",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
     "express": "^4.16.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
