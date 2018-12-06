@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "server/server.js",
-  "proxy": "http://localhost:3015",
+  "proxy": "http://localhost:3006",
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",

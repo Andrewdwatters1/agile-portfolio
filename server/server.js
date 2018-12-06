@@ -6,14 +6,14 @@ const stockCtrl = require("./controllers/stockController");
 
 //import objects from controller file
 
-const port = 3015;
+const port = process.env.SERVER_PORT;
 const app = express();
 app.use(bodyParser.json());
 
 
 app.post('/api/addToPortfolio', stockCtrl.getIntradayPrices);
 app.post('/api/addToWatchList', stockCtrl.getIntradayPrices);
-
+app.get('/api/getIndexInfo', stockCtrl.getIndexInfo);
 
 // app.get('/api/stocks', stockCtrl.getStockData);
 // app.put(`api/stocks ${plus param to change}`, stockCtrl.updateStockData);

@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { ToastContainer, ToastStore } from 'react-toasts';
 
-// import '../.././CSS/main.css';
 import Display from './Display';
 import Watchlist from './Watchlist';
-import MarketIndexes from './../MarketIndexes';
 
 
 class Input extends Component {
@@ -98,10 +96,6 @@ class Input extends Component {
             </button>
 
         </div>
-
-        <MarketIndexes indexSymbol={"DJI"} />
-        <MarketIndexes indexSymbol={"IXIC"} />
-        <MarketIndexes indexSymbol={"INX"} />
 
         <Watchlist watchlist={this.state.watchlist} />
 

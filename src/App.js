@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
 
-import Header from './components/Header'
-import Portfolio from './components/Portfolio/Portfolio'
+import Input from './components/Input'
+import MarketIndexes from './components/MarketIndexes'
 
-
-class App extends Component {
-  // constructor() {
-  // super();
-  // }
-
+export default class App extends Component {
   render() {
     return (
       <div>
-        <div>
-          <Header />
-          <Portfolio />
-          {/* <Footer/> */}
-        </div>
+        <h1>AGILE PORTFOLIO VISUALIZER</h1>
+        <Input />
+        <MarketIndexes />
       </div >
     )
   }
 }
-
-export default App;

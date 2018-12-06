@@ -10,6 +10,33 @@ module.exports = {
       .catch(error => console.log(error));
   },
 
+  getIndexInfo: async (req, res) => {
+    const endpoints = [
+      `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=DJI&apikey=${process.env.ALPHA_VANTAGE_API_KEY}`,
+      `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=QQQ&apikey=${process.env.ALPHA_VANTAGE_API_KEY}`,
+      `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=INX&apikey=${process.env.ALPHA_VANTAGE_API_KEY}`
+    ];
+    const results = [];
+
+    endpoints.forEach(endpoint => {
+      axios.get(endpoint)
+        .then(result => {
+          let symbol = Object.values(result.data['Global Quote'])[0]
+          results.push({ symbol, data: result.data['Global Quote'] })
+          if (results.length === 3) processResult()
+        })
+        .catch(error => results.push(error));
+    })
+
+    processResult = () => res.status(200).send(results)
+  }
+
+
+
+
+
+
+
 
   // getStockData: (req, res, next) => {
   //   res.status(200).send(stocks);
